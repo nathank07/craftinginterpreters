@@ -27,6 +27,7 @@ class Scanner {
     int start = 0;
     int current = 0; 
     int line = 1;
+    int comment_blocks = 0;
     void scanToken();
     void string();
     void number();

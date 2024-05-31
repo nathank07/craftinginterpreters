@@ -1,0 +1,10 @@
+// This is a comment and should not be parsed
+
+/*
+ * This is also a comment and should not be parsed
+ * This is also a comment and should not be parsed
+ * This is also a comment and should not be parsed
+ * This is also a comment and should not be parsed
+ */
+
+print "Hello, world!";

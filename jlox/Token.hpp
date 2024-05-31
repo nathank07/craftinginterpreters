@@ -40,6 +40,6 @@ class Token {
             else if(std::holds_alternative<double>(literal)) {
                 literalStr = std::to_string(std::get<double>(literal));
             }
-            return "Type: " + std::to_string(type) + " Lexeme: " + lexeme + " Literal: " + literalStr; 
+            return  "Line: " + std::to_string(line) + " Type: " + std::to_string(type) + " Lexeme: " + lexeme + " Literal: " + literalStr; 
         }
 };

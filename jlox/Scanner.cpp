@@ -29,6 +29,15 @@ void Scanner::scanToken() {
         case '/':
             if(match('/')) {
                 while (peek() != '\n' && !isAtEnd()) advance();
+            } else if(match('*')) {
+                comment_blocks += 1;
+                while (comment_blocks > 0 && !isAtEnd()) {
+                    if(peek() == '/' && peekNext() == '*') comment_blocks += 1;
+                    if(peek() == '*' && peekNext() == '/') comment_blocks -= 1;
+                    if(peek() == '\n') line += 1;
+                    advance();
+                }
+                advance();
             } else {
                 addToken(SLASH);
             }
@@ -89,7 +98,6 @@ void Scanner::identifier() {
     if(type == 0) type = IDENTIFIER;
     addToken(type);
 }
-
 
 void Scanner::addToken(TokenType type, std::variant<std::string, double> literal) {
     std::string text = source.substr(start, current - start);
