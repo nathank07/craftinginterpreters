@@ -39,7 +39,7 @@ void Scanner::scanToken() {
         case '\n':
             line++;
             break;
-        case '"': break;
+        case '"': string(); break;
         default:
             if(isdigit(c)) {
                 number();
